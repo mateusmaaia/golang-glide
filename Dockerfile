@@ -6,9 +6,14 @@ RUN apt-get install -qqy \
     ca-certificates \
     curl \
     lxc \
-    iptables
+    iptables \
+    python3-pip \ 
+    python-dev \ 
+RUN pip install --upgrade pip 
 RUN curl -sSL https://get.docker.com/ | sh
 RUN curl https://glide.sh/get | sh
 RUN go get -u github.com/jstemmer/go-junit-report
 RUN go get -u github.com/golang/lint/golint
 RUN go get -u github.com/golang/dep/cmd/dep
+ARG GOPATH=~/go
+ARG GOBIN=~/go/bin
